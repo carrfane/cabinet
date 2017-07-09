@@ -1,5 +1,6 @@
 class DocsController < ApplicationController
   before_action :find_doc, only: [:show, :edit, :update, :destroy]
+  before_action :authenticated
   def index
     @docs = Doc.where(user_id: current_user).order('created_at DESC')
   end
@@ -47,5 +48,11 @@ class DocsController < ApplicationController
 
     def doc_params
     	params.require(:doc).permit(:title, :content)
+    end
+
+    def authenticated
+      if !current_user
+      	redirect_to new_user_session_path
+      end
     end
 end
