@@ -46,13 +46,14 @@
 }
 
 #callouts {
-	background-image: image-url("callout_background.jpg");
+	background-image: image-url("background.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: top center;
 	width: 100%;
 	min-height: 400px;
-	display: table;
+	display: flex;
+  align-items: center;
 	.callout_inner {
 		display: table-cell;
 		vertical-align: middle;
